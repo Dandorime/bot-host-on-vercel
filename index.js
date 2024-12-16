@@ -9,10 +9,15 @@ const app = express();
 const token = process.env.TELEGRAM_BOT_TOKEN;
 
 // Создайте экземпляр бота
-const bot = new TelegramBot(token);
+const bot = new TelegramBot(token, {webHook: true});
 
 // URL вашего веб-мини-приложения
 const webAppUrl = process.env.WEB_MINI_APP;
+
+
+const webhookUrl = 'https://bot-host-on-vercel.vercel.app/';
+
+bot.setWebHook(webhookUrl);
 
 // Обработчик команды /start
 bot.onText(/\/start/, (msg) => {
@@ -39,11 +44,6 @@ bot.on('message', (msg) => {
     if (msg.text !== '/start')
         bot.sendMessage(chatId, 'Я не понимаю. Напишите /start для запуска.');
 });
-
-
-const webhookUrl = 'https://bot-host-on-vercel.vercel.app/';
-
-bot.setWebHook(webhookUrl);
 
 // Запустите бота
 console.log('Бот запущен...');
