@@ -1,6 +1,9 @@
 import TelegramBot from 'node-telegram-bot-api'
 import express from 'express'
 
+const app = express();
+dotenv.config();
+
 // Your secret bot token.
 const token = process.env.TELEGRAM_BOT_TOKEN;
 
@@ -36,19 +39,23 @@ bot.on('message', (msg) => {
         bot.sendMessage(chatId, 'Я не понимаю. Напишите /start для запуска.');
 });
 
-const app = express();
 
+const webhookUrl = 'https://bot-host-on-vercel.vercel.app/';
 
-app.get('/', (req, res) => {
-    res.send('Express BOT on Vercel')
-})
-
-const webhookUrl = 'https://YOUR_VERCEL_DEPLOYED_URL/';
 bot.setWebHook(webhookUrl);
 
 // Запустите бота
 console.log('Бот запущен...');
 
+
+app.get('/', (req, res) => {
+    res.send('Express Bot on Vercel')
+})
+  
+app.get('/ping', (req, res) => {
+    res.send('pong 🏓')
+})
+
 app.listen(port, () => {
     console.log(`[server]: Server is running`);
-  });
+});
