@@ -17,7 +17,6 @@ const webAppUrl = process.env.WEB_MINI_APP;
 
 const webhookUrl = 'https://bot-host-on-vercel.vercel.app/';
 
-bot.setWebHook(webhookUrl);
 
 // Обработчик команды /start
 bot.onText(/\/start/, (msg) => {
@@ -58,6 +57,7 @@ app.get('/ping', (req, res) => {
 })
 
 console.log('test')
+bot.setWebHook(webhookUrl);
 
 const port = 3000;
 
