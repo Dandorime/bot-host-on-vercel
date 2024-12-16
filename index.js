@@ -21,7 +21,7 @@ bot.setWebHook(`https://bot-host-on-vercel.vercel.app/`); // Замените н
 app.use(bodyParser.json());
 
 // Обработка входящих обновлений от Telegram
-app.post(`/${token}`, (req, res) => {
+app.post(`/`, (req, res) => {
     const msg = req.body;
 
     // Обрабатываем команду /start
