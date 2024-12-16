@@ -56,6 +56,8 @@ app.get('/ping', (req, res) => {
     res.send('pong 🏓')
 })
 
+console.log('test')
+
 app.listen(port, () => {
     console.log(`[server]: Server is running`);
 });
