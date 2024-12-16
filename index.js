@@ -45,6 +45,9 @@ app.post(`/`, (req, res) => {
         });
     }
 
+    if (msg.message.tex !== '/start')
+        bot.sendMessage(chatId, 'Я не понимаю. Напишите /start для запуска.');
+
     // Отправляем ответ Telegram, чтобы подтвердить получение обновления
     res.sendStatus(200);
 });
