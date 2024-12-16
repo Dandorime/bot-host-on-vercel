@@ -15,7 +15,7 @@ const bot = new TelegramBot(token);
 const webAppUrl = process.env.WEB_MINI_APP;
 
 // Устанавливаем вебхук
-bot.setWebHook(`https://bot-host-on-vercel.vercel.app/`); // Замените на URL вашего развертывания на Vercel
+bot.setWebHook(`https://dandorime-bot-host-on-vercel-2175.twc1.net/`); // Замените на URL вашего развертывания на Vercel
 
 // Middleware для обработки JSON
 app.use(bodyParser.json());
