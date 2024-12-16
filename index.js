@@ -43,10 +43,10 @@ app.post(`/`, (req, res) => {
         bot.sendMessage(chatId, 'Привет! Нажмите кнопку ниже, чтобы открыть веб-мини-приложение.', {
             reply_markup: replyMarkup,
         });
+    } else if(msg.message && msg.message.text !== '/start') {
+        const chatId = msg.message.chat.id;
+        bot.sendMessage(chatId, 'Я не понимаю. Напишите /start для запуска.');
     }
-
-    // if (msg.message.text !== '/start')
-    //     bot.sendMessage(chatId, 'Я не понимаю. Напишите /start для запуска.');
 
     // Отправляем ответ Telegram, чтобы подтвердить получение обновления
     res.sendStatus(200);
