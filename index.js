@@ -1,8 +1,9 @@
-import TelegramBot from 'node-telegram-bot-api'
-import express from 'express'
+const TelegramBot = require('node-telegram-bot-api');
+const express = require('express');
+require('dotenv').config()
 
 const app = express();
-dotenv.config();
+
 
 // Your secret bot token.
 const token = process.env.TELEGRAM_BOT_TOKEN;
@@ -57,6 +58,8 @@ app.get('/ping', (req, res) => {
 })
 
 console.log('test')
+
+const port = 3000;
 
 app.listen(port, () => {
     console.log(`[server]: Server is running`);
